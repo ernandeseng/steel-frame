@@ -6,45 +6,94 @@ import './Portfolio.css';
 const projects = [
     {
         id: 1,
-        title: "Residência Alpha",
+        title: "Residência Contemporânea",
         category: "Residencial",
-        image: "https://images.unsplash.com/photo-1600596542815-e32c630bd138?q=80&w=1964&auto=format&fit=crop",
+        image: "https://i.ibb.co/QvVtYkZK/Whats-App-Image-2026-02-11-at-10-55-23.jpg",
         size: "large"
     },
     {
         id: 2,
-        title: "Shopping Premium",
+        title: "Estrutura Metálica Industrial",
         category: "Comercial",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+        image: "https://i.ibb.co/fzkr9FDf/Whats-App-Image-2026-02-11-at-10-55-21.jpg",
         size: "medium"
     },
     {
         id: 3,
-        title: "Ampliação Loft",
+        title: "Ampliação Residencial",
         category: "Reformas",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+        image: "https://i.ibb.co/tP1Pfr8C/Whats-App-Image-2026-02-11-at-10-55-19.jpg",
         size: "medium"
     },
     {
         id: 4,
-        title: "Sede Corporativa",
+        title: "Escritório Moderno",
         category: "Comercial",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+        image: "https://i.ibb.co/W4n56K1r/Whats-App-Image-2026-02-11-at-10-55-47.jpg",
         size: "large"
     },
     {
         id: 5,
-        title: "Casa do Bosque",
+        title: "Casa de Campo",
         category: "Residencial",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+        image: "https://i.ibb.co/rRJ87g4g/Whats-App-Image-2026-02-11-at-10-55-45.jpg",
         size: "medium"
     },
     {
         id: 6,
-        title: "Reforma Industrial",
+        title: "Reforma de Interiores",
         category: "Reformas",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+        image: "https://i.ibb.co/q3VGZ34g/Whats-App-Image-2026-02-11-at-10-55-43.jpg",
         size: "large"
+    },
+    {
+        id: 7,
+        title: "Projeto Comercial",
+        category: "Comercial",
+        image: "https://i.ibb.co/TxWx04Hm/Whats-App-Image-2026-02-11-at-10-55-40.jpg",
+        size: "medium"
+    },
+    {
+        id: 8,
+        title: "Estrutura em Steel Frame",
+        category: "Residencial",
+        image: "https://i.ibb.co/04CxSdC/Whats-App-Image-2026-02-11-at-10-55-37.jpg",
+        size: "medium"
+    },
+    {
+        id: 9,
+        title: "Fachada Moderna",
+        category: "Reformas",
+        image: "https://i.ibb.co/CpsCJQ7N/Whats-App-Image-2026-02-11-at-10-55-35.jpg",
+        size: "large"
+    },
+    {
+        id: 10,
+        title: "Obra Corporativa",
+        category: "Comercial",
+        image: "https://i.ibb.co/Psg0cjDj/Whats-App-Image-2026-02-11-at-10-55-32.jpg",
+        size: "medium"
+    },
+    {
+        id: 11,
+        title: "Detalhes de Acabamento",
+        category: "Residencial",
+        image: "https://i.ibb.co/W4tVD0M2/Whats-App-Image-2026-02-11-at-10-55-29.jpg",
+        size: "large"
+    },
+    {
+        id: 12,
+        title: "Construção Steel Frame",
+        category: "Comercial",
+        image: "https://i.ibb.co/RpQRgXjd/Whats-App-Image-2026-02-11-at-10-55-27.jpg",
+        size: "medium"
+    },
+    {
+        id: 13,
+        title: "Obra em Andamento",
+        category: "Reformas",
+        image: "https://i.ibb.co/nvF530t/Whats-App-Image-2026-02-11-at-10-55-25.jpg",
+        size: "medium"
     }
 ];
 
