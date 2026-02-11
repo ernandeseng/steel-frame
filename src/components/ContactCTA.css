@@ -1,0 +1,61 @@
+/* Contact CTA Section */
+.contact-cta-section {
+    background: linear-gradient(rgba(136, 92, 68, 0.85), rgba(58, 31, 26, 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-light);
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+}
+
+.contact-cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+}
+
+.contact-cta-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .contact-cta-title {
+        font-size: 3.5rem;
+    }
+}
+
+.contact-cta-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+    max-width: 600px;
+}
+
+.contact-cta-button {
+    background-color: var(--bg-secondary);
+    color: var(--accent-main);
+    padding: 16px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-cta-button:hover {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
