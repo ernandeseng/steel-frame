@@ -10,7 +10,7 @@ const services = [
         description: "Casas de alto padrão com design moderno e execução ágil.",
         detailedDescription: "Projetamos e construímos residências personalizadas com foco em conforto, estética e funcionalidade. Utilizamos o sistema Steel Frame para garantir uma obra rápida, limpa e com isolamento térmico e acústico superior. Transforme seu sonho em realidade com nossa equipe especializada.",
         whatsappMessage: "Olá, gostaria de saber mais sobre Projetos Residenciais.",
-        image: "https://i.imgur.com/jkFU34Z.png"
+        image: "https://i.imgur.com/wus5E2p.png"
     },
     {
         icon: <Building2 size={32} />,
