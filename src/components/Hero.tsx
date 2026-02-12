@@ -12,6 +12,11 @@ const Hero = () => {
                 className="hero-background"
                 style={{ y }}
             >
+                <img
+                    src="https://i.imgur.com/b9e2YRv.jpeg"
+                    alt="Estrutura Metálica Steel Frame"
+                    className="hero-bg-img"
+                />
                 <div className="hero-overlay"></div>
             </motion.div>
 

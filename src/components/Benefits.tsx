@@ -40,17 +40,46 @@ const Benefits = () => {
     return (
         <section className="benefits-section section" id="benefits">
             <div className="container">
-                <div className="text-center mb-6 md:mb-12">
+                <motion.div
+                    className="text-center mb-6 md:mb-12"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
                     <span className="section-subtitle">Por que nós?</span>
                     <h2 className="section-title">Construindo com Excelência</h2>
-                </div>
+                </motion.div>
 
                 {/* Desktop Grid View */}
-                <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8 pb-2">
+                <motion.div
+                    className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8 pb-2"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.2
+                            }
+                        }
+                    }}
+                >
                     {benefits.map((benefit, index) => (
-                        <div
+                        <motion.div
                             key={index}
-                            className="benefit-item opacity-100"
+                            className="benefit-item"
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                visible: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { duration: 0.5 }
+                                }
+                            }}
+                            whileHover={{ y: -10, transition: { duration: 0.3 } }}
                         >
                             <div className="icon-wrapper">
                                 {benefit.icon}
@@ -59,9 +88,9 @@ const Benefits = () => {
                                 <h3>{benefit.title}</h3>
                                 <p>{benefit.description}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Mobile Carousel View */}
                 <div className="md:hidden relative h-[320px] flex items-center justify-center">

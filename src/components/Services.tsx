@@ -89,10 +89,16 @@ const Services = () => {
     return (
         <section className="highlight-section section" id="services">
             <div className="container">
-                <div className="title-wrapper">
+                <motion.div
+                    className="title-wrapper"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
                     <span className="section-subtitle">Especialidades</span>
                     <h2 className="section-title">Nossos Serviços</h2>
-                </div>
+                </motion.div>
 
                 <motion.div
                     className="services-grid"
