@@ -116,9 +116,9 @@ const Services = () => {
                         >
                             <div className="card-image-wrapper">
                                 <img src={service.image} alt={service.title} />
-                                <div className="card-icon-badge">
-                                    {service.icon}
-                                </div>
+                            </div>
+                            <div className="card-icon-badge">
+                                {service.icon}
                             </div>
                             <div className="card-content">
                                 <h3 className="service-title">{service.title}</h3>

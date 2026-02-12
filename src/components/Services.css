@@ -60,6 +60,7 @@
     flex-direction: column;
     height: 100%;
     overflow: hidden;
+    position: relative;
     /* Important for image rounded corners */
 }
 
@@ -86,7 +87,7 @@
 
 .card-icon-badge {
     position: absolute;
-    bottom: -24px;
+    top: 168px;
     left: 24px;
     background-color: var(--bg-primary);
     color: var(--accent-main);
