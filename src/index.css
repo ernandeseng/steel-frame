@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
     /* Colors */
     --bg-primary: #f2f1ef;
@@ -14,6 +16,35 @@
     --accent-main: #885c44;
     --accent-hover: #3a1f1a;
     --accent-secondary: #b28a66;
+
+    /* Shadcn HSL Variables (Mapped from Project Colors) */
+    --background: 40 9% 94%;
+    /* #f2f1ef */
+    --foreground: 9 38% 16%;
+    /* #3a1f1a */
+    --card: 0 0% 100%;
+    /* #ffffff */
+    --card-foreground: 9 38% 16%;
+    /* #3a1f1a */
+    --popover: 0 0% 100%;
+    --popover-foreground: 9 38% 16%;
+    --primary: 21 33% 40%;
+    /* #885c44 */
+    --primary-foreground: 40 9% 94%;
+    --secondary: 16 16% 32%;
+    /* #5e4b44 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 40 9% 90%;
+    --muted-foreground: 16 9% 50%;
+    /* #8c7b75 */
+    --accent: 40 9% 90%;
+    --accent-foreground: 9 38% 16%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 16 9% 85%;
+    --input: 16 9% 85%;
+    --ring: 21 33% 40%;
+    --radius: 0.5rem;
 
     /* Typography */
     --font-heading: 'Playfair Display', serif;
@@ -34,6 +65,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    border-color: hsl(var(--border));
 }
 
 html {
@@ -177,4 +209,12 @@ img {
 
 .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Utility to support HSL variables in Tailwind equivalent usage */
+@layer base {
+    :root {
+        --background: 40 9% 94%;
+        --foreground: 9 38% 16%;
+    }
 }

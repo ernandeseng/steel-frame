@@ -97,14 +97,8 @@ const projects = [
     }
 ];
 
-const categories = ["Todos", "Residencial", "Comercial", "Reformas"];
-
 const Portfolio = () => {
-    const [filter, setFilter] = useState("Todos");
-
-    const filteredProjects = filter === "Todos"
-        ? projects
-        : projects.filter(project => project.category === filter);
+    const [selectedId, setSelectedId] = useState<number | null>(null);
 
     return (
         <section className="portfolio-section section" id="portfolio">
@@ -112,51 +106,79 @@ const Portfolio = () => {
                 <div className="portfolio-header">
                     <span className="section-subtitle">Nosso Legado</span>
                     <h2 className="section-title">Portfólio de Obras</h2>
-
-                    <div className="filter-tabs">
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setFilter(category)}
-                                className={`filter-btn ${filter === category ? 'active' : ''}`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
                 </div>
 
-                <motion.div
-                    layout
-                    className="portfolio-grid"
-                >
-                    <AnimatePresence>
-                        {filteredProjects.map((project) => (
-                            <motion.div
-                                layout
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.8 }}
-                                transition={{ duration: 0.4 }}
-                                key={project.id}
-                                className={`portfolio-item ${project.size}`}
-                            >
-                                <div className="portfolio-image-wrapper">
-                                    <img src={project.image} alt={project.title} loading="lazy" />
-                                    <div className="portfolio-overlay">
-                                        <div className="overlay-content">
-                                            <span className="project-category">{project.category}</span>
-                                            <h3 className="project-title">{project.title}</h3>
-                                            <button className="view-project-btn">
-                                                <Plus size={24} />
-                                            </button>
-                                        </div>
+                <div className="portfolio-grid">
+                    {projects.map((project) => (
+                        <motion.div
+                            layoutId={`card-${project.id}`}
+                            key={project.id}
+                            onClick={() => setSelectedId(project.id)}
+                            className={`portfolio-item ${project.size}`}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            <div className="portfolio-image-wrapper">
+                                <motion.img
+                                    layoutId={`image-${project.id}`}
+                                    src={project.image}
+                                    alt={project.title}
+                                    loading="lazy"
+                                />
+                                <div className="portfolio-overlay">
+                                    <div className="overlay-content">
+                                        <Plus size={24} />
                                     </div>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                <AnimatePresence>
+                    {selectedId && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setSelectedId(null)}>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="absolute inset-0 bg-black/80 backdrop-blur-md"
+                            />
+                            <div className="relative z-10 w-full max-w-4xl max-h-[90vh] flex items-center justify-center pointer-events-none">
+                                {projects.map((item) => (
+                                    item.id === selectedId && (
+                                        <motion.div
+                                            layoutId={`card-${item.id}`}
+                                            key={item.id}
+                                            className="relative overflow-hidden rounded-2xl bg-transparent pointer-events-auto shadow-2xl"
+                                        >
+                                            <motion.img
+                                                layoutId={`image-${item.id}`}
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="w-full h-auto max-h-[85vh] object-contain"
+                                            />
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: 10 }}
+                                                className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white"
+                                            >
+                                                <span className="text-sm font-medium uppercase tracking-wider opacity-80">{item.category}</span>
+                                                <h3 className="text-2xl font-bold mt-1">{item.title}</h3>
+                                            </motion.div>
+                                            <button
+                                                className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-full text-white backdrop-blur-sm transition-colors"
+                                                onClick={(e) => { e.stopPropagation(); setSelectedId(null); }}
+                                            >
+                                                <Plus className="rotate-45" size={24} />
+                                            </button>
+                                        </motion.div>
+                                    )
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </AnimatePresence>
 
                 <div className="portfolio-footer">
                     <a href="#" className="btn-outline dark-btn">Ver Todos os Projetos</a>

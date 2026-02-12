@@ -1,0 +1,104 @@
+.benefits-section {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    background-color: var(--bg-primary);
+    /* Same as About section */
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    /* Reduced gap for mobile */
+    padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-main), var(--accent-secondary, #d4a373));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(136, 92, 68, 0.2);
+}
+
+.benefit-item:hover::before {
+    opacity: 1;
+}
+
+.icon-wrapper {
+    margin-bottom: 1.5rem;
+    color: var(--accent-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: rgba(136, 92, 68, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.benefit-item:hover .icon-wrapper {
+    background-color: var(--accent-main);
+    color: white;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.benefit-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.benefit-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.benefit-content p {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}

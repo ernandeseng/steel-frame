@@ -5,25 +5,28 @@ import './Services.css';
 
 const services = [
     {
-        icon: <Home size={40} />,
+        icon: <Home size={32} />,
         title: "Projetos Residenciais",
         description: "Casas de alto padrão com design moderno e execução ágil.",
         detailedDescription: "Projetamos e construímos residências personalizadas com foco em conforto, estética e funcionalidade. Utilizamos o sistema Steel Frame para garantir uma obra rápida, limpa e com isolamento térmico e acústico superior. Transforme seu sonho em realidade com nossa equipe especializada.",
-        whatsappMessage: "Olá, gostaria de saber mais sobre Projetos Residenciais."
+        whatsappMessage: "Olá, gostaria de saber mais sobre Projetos Residenciais.",
+        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
     },
     {
-        icon: <Building2 size={40} />,
+        icon: <Building2 size={32} />,
         title: "Construções Comerciais",
         description: "Soluções rápidas e modulares para o seu negócio não parar.",
         detailedDescription: "Entendemos que tempo é dinheiro. Nossas soluções comerciais são focadas na agilidade de entrega sem abrir mão da qualidade. Ambientes versáteis, duráveis e prontos para receber o seu negócio em tempo recorde. Ideal para lojas, escritórios e galpões.",
-        whatsappMessage: "Olá, gostaria de saber mais sobre Construções Comerciais."
+        whatsappMessage: "Olá, gostaria de saber mais sobre Construções Comerciais.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
     },
     {
-        icon: <Hammer size={40} />,
+        icon: <Hammer size={32} />,
         title: "Reformas e Ampliações",
         description: "Amplie seu espaço com limpeza e eficiência tecnológica.",
         detailedDescription: "Precisa de mais espaço ou quer renovar seu ambiente? Realizamos reformas e ampliações com o mínimo de transtorno. A tecnologia Steel Frame permite intervenções rápidas, leves e com entulho reduzido. Modernize seu imóvel com praticidade.",
-        whatsappMessage: "Olá, gostaria de saber mais sobre Reformas e Ampliações."
+        whatsappMessage: "Olá, gostaria de saber mais sobre Reformas e Ampliações.",
+        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop"
     }
 ];
 
@@ -47,9 +50,19 @@ const itemVariants = {
 };
 
 const modalVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-    exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } }
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { type: "spring" as const, stiffness: 300, damping: 30 }
+    },
+    exit: {
+        opacity: 0,
+        y: 50,
+        scale: 0.95,
+        transition: { duration: 0.2 }
+    }
 };
 
 const overlayVariants = {
@@ -63,7 +76,7 @@ const Services = () => {
 
     const handleOpenModal = (service: typeof services[0]) => {
         setSelectedService(service);
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        document.body.style.overflow = 'hidden';
     };
 
     const handleCloseModal = () => {
@@ -93,19 +106,24 @@ const Services = () => {
                             key={index}
                             className="service-card"
                             variants={itemVariants}
-                            whileHover={{ y: -8, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.1)" }}
+                            whileHover={{ y: -8, boxShadow: "0 20px 40px -15px rgba(0,0,0,0.1)" }}
                         >
-                            <div className="icon-wrapper">
-                                {service.icon}
+                            <div className="card-image-wrapper">
+                                <img src={service.image} alt={service.title} />
+                                <div className="card-icon-badge">
+                                    {service.icon}
+                                </div>
                             </div>
-                            <h3 className="service-title">{service.title}</h3>
-                            <p className="service-description">{service.description}</p>
-                            <button
-                                onClick={() => handleOpenModal(service)}
-                                className="service-link"
-                            >
-                                Saiba mais <ArrowRight size={16} />
-                            </button>
+                            <div className="card-content">
+                                <h3 className="service-title">{service.title}</h3>
+                                <p className="service-description">{service.description}</p>
+                                <button
+                                    onClick={() => handleOpenModal(service)}
+                                    className="service-link"
+                                >
+                                    Saiba mais <ArrowRight size={16} />
+                                </button>
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -113,7 +131,7 @@ const Services = () => {
 
             <AnimatePresence>
                 {selectedService && (
-                    <>
+                    <div className="modal-root">
                         <motion.div
                             className="modal-overlay"
                             variants={overlayVariants}
@@ -131,30 +149,33 @@ const Services = () => {
                                 exit="exit"
                             >
                                 <button className="modal-close-btn" onClick={handleCloseModal}>
-                                    <X size={24} />
+                                    <X size={20} />
                                 </button>
-                                <div className="modal-header">
-                                    <div className="modal-icon-wrapper">
+
+                                <div className="modal-image-header">
+                                    <img src={selectedService.image} alt={selectedService.title} />
+                                    <div className="modal-image-overlay"></div>
+                                    <h3 className="modal-title-overlay">{selectedService.title}</h3>
+                                </div>
+
+                                <div className="modal-body-content">
+                                    <div className="modal-icon-inline">
                                         {selectedService.icon}
                                     </div>
-                                    <h3 className="modal-title">{selectedService.title}</h3>
-                                </div>
-                                <div className="modal-body">
-                                    <p>{selectedService.detailedDescription}</p>
-                                </div>
-                                <div className="modal-footer">
+                                    <p className="modal-description">{selectedService.detailedDescription}</p>
+
                                     <a
                                         href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(selectedService.whatsappMessage)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="modal-cta-btn"
                                     >
-                                        Falar com Especialista
+                                        Falar com Especialista <ArrowRight size={16} />
                                     </a>
                                 </div>
                             </motion.div>
                         </div>
-                    </>
+                    </div>
                 )}
             </AnimatePresence>
         </section>

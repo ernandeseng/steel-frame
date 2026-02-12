@@ -1,6 +1,5 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { Clock, ShieldCheck, HardHat, Leaf } from 'lucide-react';
 import './About.css';
 
 const Counter = ({ from, to, duration = 2 }: { from: number; to: number; duration?: number }) => {
@@ -89,37 +88,6 @@ const About = () => {
                             <span className="stat-label">Time</span>
                         </div>
                     </div>
-
-                    <div className="about-differentials">
-                        <div className="differential-item">
-                            <Clock className="diff-icon" />
-                            <div>
-                                <h4>Entrega Rápida</h4>
-                                <p>Cronogramas rigorosos e precisos.</p>
-                            </div>
-                        </div>
-                        <div className="differential-item">
-                            <Leaf className="diff-icon" />
-                            <div>
-                                <h4>Sustentável</h4>
-                                <p>Construção seca e ecológica.</p>
-                            </div>
-                        </div>
-                        <div className="differential-item">
-                            <HardHat className="diff-icon" />
-                            <div>
-                                <h4>Especialistas</h4>
-                                <p>Engenheiros e certificados.</p>
-                            </div>
-                        </div>
-                        <div className="differential-item">
-                            <ShieldCheck className="diff-icon" />
-                            <div>
-                                <h4>Garantia</h4>
-                                <p>Segurança em cada detalhe.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Image Side */}
@@ -131,7 +99,7 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Equipe ESFD em obra" />
+                        <img src="https://i.ibb.co/QvVtYkZK/Whats-App-Image-2026-02-11-at-10-55-23.jpg" alt="Equipe ESFD em obra" />
                         <div className="image-overlay"></div>
                     </motion.div>
                 </div>

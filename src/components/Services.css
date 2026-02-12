@@ -1,7 +1,6 @@
 /* Services Section */
 .highlight-section {
     background-color: var(--bg-secondary);
-    /* White */
     color: var(--text-primary);
 }
 
@@ -54,31 +53,60 @@
 
 .service-card {
     background-color: var(--bg-primary);
-    /* Off-white #f2f1ef */
-    padding: var(--spacing-md);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     height: 100%;
+    overflow: hidden;
+    /* Important for image rounded corners */
 }
 
 .service-card:hover {
-    background-color: #e8e6e1;
-    /* Slightly darker */
-    border-color: rgba(0, 0, 0, 0.05);
+    border-color: var(--accent-main);
 }
 
-.icon-wrapper {
+.card-image-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.card-icon-badge {
+    position: absolute;
+    bottom: -24px;
+    left: 24px;
+    background-color: var(--bg-primary);
     color: var(--accent-main);
-    margin-bottom: var(--spacing-sm);
-    transition: transform 0.3s ease;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 }
 
-.service-card:hover .icon-wrapper {
-    transform: scale(1.1);
+.card-content {
+    padding: var(--spacing-md);
+    padding-top: 32px;
+    /* Space for the icon badge */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-title {
@@ -86,6 +114,7 @@
     font-size: 1.5rem;
     margin-bottom: var(--spacing-xs);
     color: var(--text-primary);
+    font-weight: 700;
 }
 
 .service-description {
@@ -94,9 +123,8 @@
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
     flex-grow: 1;
-    /* Push link to bottom */
+    line-height: 1.6;
 }
-
 
 .service-link {
     display: inline-flex;
@@ -119,18 +147,26 @@
 }
 
 /* Modal Styles */
-.modal-overlay {
+.modal-root {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
 }
 
 .modal-container-wrapper {
-    position: fixed;
-    inset: 0;
-    z-index: 1001;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,83 +175,107 @@
 }
 
 .service-modal {
+    pointer-events: auto;
     background-color: var(--bg-primary);
     width: 100%;
-    max-width: 500px;
-    border-radius: 16px;
-    padding: var(--spacing-lg);
+    max-width: 600px;
+    border-radius: 24px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     position: relative;
-    pointer-events: auto;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modal-image-header {
+    position: relative;
+    height: 250px;
+}
+
+.modal-image-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.modal-title-overlay {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: var(--spacing-md);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: white;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .modal-close-btn {
     position: absolute;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    background: transparent;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
     border: none;
-    color: var(--text-secondary);
+    color: white;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
     border-radius: 50%;
     transition: all 0.2s ease;
-}
-
-.modal-close-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: var(--text-primary);
-}
-
-.modal-header {
+    z-index: 20;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-bottom: var(--spacing-md);
-}
-
-.modal-icon-wrapper {
-    color: var(--accent-main);
-    margin-bottom: var(--spacing-sm);
-    background-color: rgba(136, 92, 68, 0.1); /* Assuming accen color is brownish */
-    padding: 1rem;
-    border-radius: 50%;
-}
-
-.modal-title {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    color: var(--text-primary);
-}
-
-.modal-body {
-    margin-bottom: var(--spacing-lg);
-    text-align: center;
-}
-
-.modal-body p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-.modal-footer {
-    display: flex;
     justify-content: center;
 }
 
+.modal-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg);
+}
+
+.modal-body-content {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+}
+
+.modal-icon-inline {
+    display: inline-flex;
+    color: var(--accent-main);
+    margin-bottom: var(--spacing-sm);
+}
+
+.modal-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
 .modal-cta-btn {
-    background-color: #25D366; /* WhatsApp Green */
+    background-color: #25D366;
+    /* WhatsApp Green */
     color: white;
-    padding: 12px 24px;
-    border-radius: 999px;
+    padding: 14px 28px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
+    width: 100%;
+    /* Full width button in modal */
+    font-size: 1.1rem;
 }
 
 .modal-cta-btn:hover {
