@@ -214,10 +214,16 @@
     bottom: var(--spacing-md);
     left: var(--spacing-md);
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     z-index: 10;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 640px) {
+    .modal-title-overlay {
+        font-size: 2rem;
+    }
 }
 
 .modal-close-btn {
@@ -244,8 +250,14 @@
 }
 
 .modal-body-content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
     overflow-y: auto;
+}
+
+@media (min-width: 640px) {
+    .modal-body-content {
+        padding: var(--spacing-lg);
+    }
 }
 
 .modal-icon-inline {
@@ -255,10 +267,18 @@
 }
 
 .modal-description {
-    font-size: 1.125rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+    .modal-description {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        margin-bottom: var(--spacing-lg);
+    }
 }
 
 .modal-cta-btn {

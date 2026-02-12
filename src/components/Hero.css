@@ -60,6 +60,12 @@
     margin-bottom: var(--spacing-sm);
 }
 
+@media (max-width: 768px) {
+    .hero-subtitle {
+        margin-top: 5rem;
+    }
+}
+
 .hero-title {
     font-family: var(--font-heading);
     font-size: 3rem;

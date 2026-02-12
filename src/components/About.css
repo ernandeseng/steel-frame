@@ -4,13 +4,12 @@
     /* Off-white #f2f1ef */
     color: var(--text-primary);
     overflow: hidden;
-    padding-bottom: var(--spacing-xl);
 }
 
 .about-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     align-items: center;
 }
 

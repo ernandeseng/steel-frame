@@ -90,6 +90,7 @@ const Footer = () => {
             <div className="footer-bottom container">
                 <p>© 2026 ESFD Empreiteira de Steel Frame e Drywall. Todos os direitos reservados.</p>
                 <p>Responsável Técnico: Alexandre</p>
+                <p>Desenvolvido por Rocha Digital</p>
             </div>
         </footer>
     );

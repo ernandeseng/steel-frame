@@ -123,12 +123,12 @@ img {
 }
 
 .section {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
 }
 
 @media (min-width: 768px) {
     .section {
-        padding: var(--spacing-xl) 0;
+        padding: var(--spacing-lg) 0;
     }
 }
 

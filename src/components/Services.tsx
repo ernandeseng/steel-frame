@@ -10,7 +10,7 @@ const services = [
         description: "Casas de alto padrão com design moderno e execução ágil.",
         detailedDescription: "Projetamos e construímos residências personalizadas com foco em conforto, estética e funcionalidade. Utilizamos o sistema Steel Frame para garantir uma obra rápida, limpa e com isolamento térmico e acústico superior. Transforme seu sonho em realidade com nossa equipe especializada.",
         whatsappMessage: "Olá, gostaria de saber mais sobre Projetos Residenciais.",
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+        image: "https://i.imgur.com/jkFU34Z.png"
     },
     {
         icon: <Building2 size={32} />,
@@ -18,7 +18,7 @@ const services = [
         description: "Soluções rápidas e modulares para o seu negócio não parar.",
         detailedDescription: "Entendemos que tempo é dinheiro. Nossas soluções comerciais são focadas na agilidade de entrega sem abrir mão da qualidade. Ambientes versáteis, duráveis e prontos para receber o seu negócio em tempo recorde. Ideal para lojas, escritórios e galpões.",
         whatsappMessage: "Olá, gostaria de saber mais sobre Construções Comerciais.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+        image: "https://i.imgur.com/LiYhSws.png"
     },
     {
         icon: <Hammer size={32} />,
@@ -26,7 +26,7 @@ const services = [
         description: "Amplie seu espaço com limpeza e eficiência tecnológica.",
         detailedDescription: "Precisa de mais espaço ou quer renovar seu ambiente? Realizamos reformas e ampliações com o mínimo de transtorno. A tecnologia Steel Frame permite intervenções rápidas, leves e com entulho reduzido. Modernize seu imóvel com praticidade.",
         whatsappMessage: "Olá, gostaria de saber mais sobre Reformas e Ampliações.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop"
+        image: "https://i.imgur.com/0yF0dcL.png"
     }
 ];
 

@@ -1,11 +1,8 @@
-import { useState } from 'react';
-import { Clock, ShieldCheck, HardHat, Leaf, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Clock, ShieldCheck, HardHat, Leaf } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './Benefits.css';
 
 const Benefits = () => {
-    const [mobileIndex, setMobileIndex] = useState(0);
-
     const benefits = [
         {
             icon: <Clock className="benefit-icon" />,
@@ -29,14 +26,6 @@ const Benefits = () => {
         }
     ];
 
-    const nextSlide = () => {
-        setMobileIndex((prev) => (prev + 1) % benefits.length);
-    };
-
-    const prevSlide = () => {
-        setMobileIndex((prev) => (prev - 1 + benefits.length) % benefits.length);
-    };
-
     return (
         <section className="benefits-section section" id="benefits">
             <div className="container">
@@ -51,9 +40,8 @@ const Benefits = () => {
                     <h2 className="section-title">Construindo com Excelência</h2>
                 </motion.div>
 
-                {/* Desktop Grid View */}
                 <motion.div
-                    className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8 pb-2"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-2"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
@@ -91,53 +79,6 @@ const Benefits = () => {
                         </motion.div>
                     ))}
                 </motion.div>
-
-                {/* Mobile Carousel View */}
-                <div className="md:hidden relative h-[320px] flex items-center justify-center">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={mobileIndex}
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -50 }}
-                            transition={{ duration: 0.3 }}
-                            className="benefit-item absolute w-full max-w-[300px]"
-                        >
-                            <div className="icon-wrapper">
-                                {benefits[mobileIndex].icon}
-                            </div>
-                            <div className="benefit-content">
-                                <h3>{benefits[mobileIndex].title}</h3>
-                                <p>{benefits[mobileIndex].description}</p>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
-
-                    {/* Navigation Arrows */}
-                    <button
-                        onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full shadow-md z-10 text-[var(--accent-main)] hover:bg-[var(--accent-main)] hover:text-white transition-colors"
-                    >
-                        <ChevronLeft size={24} />
-                    </button>
-                    <button
-                        onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 p-2 bg-white/80 rounded-full shadow-md z-10 text-[var(--accent-main)] hover:bg-[var(--accent-main)] hover:text-white transition-colors"
-                    >
-                        <ChevronRight size={24} />
-                    </button>
-
-                    {/* Dots Indicator */}
-                    <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-2">
-                        {benefits.map((_, idx) => (
-                            <div
-                                key={idx}
-                                className={`h-2 w-2 rounded-full transition-all ${idx === mobileIndex ? 'bg-[var(--accent-main)] w-6' : 'bg-gray-300'
-                                    }`}
-                            />
-                        ))}
-                    </div>
-                </div>
 
             </div>
         </section>
